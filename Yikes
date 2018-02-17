@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+const double g_feet=32;
+
+int main()
+{
+	//input
+	double canon_angle= 0.0, velocity_mph= 0.0;
+	cout << "Enter cannon angle in degrees and speed in mph"; //Will need to convert
+	cin >> canon_angle >> velocity_mph;
+	
+	//Converting
+	double canon_rad= canon_angle*(M_PI/180.0);
+	//mph to fps -> divide by 3600 seconds, multiply by 5280 feet.
+	double velocity_fps=(velocity_mph/3600)*5280;
+	double distance_feet=((pow(velocity_fps,2))/g_feet)*sin(2*canon_rad);
+	
+	//Output
+	cout << "Place net " <<distance_feet<< endl;
+	return 0;
+}
